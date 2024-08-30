@@ -11,6 +11,7 @@
             padding: 0;
             color: #333;
             background-color: #f4f4f4;
+            overflow: hidden; /* Hide scrollbars during loading */
         }
         header {
             background: #333;
@@ -48,16 +49,43 @@
             text-align: center;
             padding: 1em 0;
         }
+
+        /* Loader Styles */
+        .loader {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border: 16px solid #f3f3f3;
+            border-top: 16px solid #3498db;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 1.5s linear infinite;
+            z-index: 9999; /* Ensure the loader is above all content */
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Hide content until fully loaded */
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
-    <header>
+    <!-- Loading Animation -->
+    <div id="loader" class="loader"></div>
+
+    <header class="hidden">
         <div class="container">
             <img alt="Night Coding" src="https://raw.githubusercontent.com/alvinlazz/alvinlazz/main/assets/Night-Coding.gif" align="auto"/>
             <h1>👋 Hi, I’m Alvin Lazar</h1>
         </div>
     </header>
-    <main class="container">
+    <main class="container hidden">
         <section id="about">
             <h2>👨🏻‍💻 About Me</h2>
             <p>💡 I like to explore new technologies and develop scripting solutions and quick hacks.</p>
@@ -107,5 +135,21 @@
     <footer>
         <p>&copy; 2024 Alvin Lazar. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('loader');
+            const header = document.querySelector('header');
+            const main = document.querySelector('main');
+            
+            // Hide the loader and show the content
+            loader.style.display = 'none';
+            header.classList.remove('hidden');
+            main.classList.remove('hidden');
+            
+            // Allow scrolling after the content is loaded
+            document.body.style.overflow = '';
+        });
+    </script>
 </body>
 </html>
