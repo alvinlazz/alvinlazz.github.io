@@ -50,23 +50,43 @@
             padding: 1em 0;
         }
 
-        /* Loader Styles */
-        .loader {
+        /* Advanced Loader Styles */
+        .loader-wrapper {
             position: fixed;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            border: 16px solid #f3f3f3;
-            border-top: 16px solid #3498db;
-            border-radius: 50%;
-            width: 120px;
-            height: 120px;
-            animation: spin 1.5s linear infinite;
-            z-index: 9999; /* Ensure the loader is above all content */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #f4f4f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
         }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .loader {
+            display: flex;
+            gap: 0.5em;
+        }
+        .loader div {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #3498db;
+            animation: bounce 1.5s infinite;
+        }
+        .loader div:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+        .loader div:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-30px);
+            }
         }
 
         /* Hide content until fully loaded */
@@ -77,7 +97,13 @@
 </head>
 <body>
     <!-- Loading Animation -->
-    <div id="loader" class="loader"></div>
+    <div id="loader-wrapper" class="loader-wrapper">
+        <div class="loader">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
 
     <header class="hidden">
         <div class="container">
@@ -138,12 +164,12 @@
 
     <script>
         window.addEventListener('load', function() {
-            const loader = document.getElementById('loader');
+            const loaderWrapper = document.getElementById('loader-wrapper');
             const header = document.querySelector('header');
             const main = document.querySelector('main');
             
             // Hide the loader and show the content
-            loader.style.display = 'none';
+            loaderWrapper.style.display = 'none';
             header.classList.remove('hidden');
             main.classList.remove('hidden');
             
