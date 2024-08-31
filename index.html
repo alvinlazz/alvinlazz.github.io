@@ -1,155 +1,107 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alvin Lazar - Portfolio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #333;
-            background-color: #f4f4f4;
-            overflow: hidden; /* Hide scrollbars during loading */
-        }
-        header {
-            background: #333;
-            color: #fff;
-            padding: 1em 0;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-        }
-        section {
-            padding: 2em 0;
-        }
-        h2 {
-            border-bottom: 2px solid #333;
-            padding-bottom: 0.5em;
-        }
-        .tech-stack img {
-            margin: 0.5em;
-        }
-        .github-analytics img {
-            margin: 1em;
-        }
-        .contact a {
-            margin: 0 1em;
-        }
-        footer {
-            background: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1em 0;
-        }
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f4f4f4;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+}
 
-        /* Loader Styles */
-        .loader {
-            position: fixed;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            border: 16px solid #f3f3f3;
-            border-top: 16px solid #3498db;
-            border-radius: 50%;
-            width: 120px;
-            height: 120px;
-            animation: spin 1.5s linear infinite;
-            z-index: 9999; /* Ensure the loader is above all content */
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+.container {
+    width: 90%;
+    max-width: 1200px; /* Prevent excessive stretching */
+    margin: auto;
+}
 
-        /* Hide content until fully loaded */
-        .hidden {
-            display: none;
-        }
-    </style>
-</head>
-<body>
-    <!-- Loading Animation -->
-    <div id="loader" class="loader"></div>
+header, footer {
+    background: #333;
+    color: #fff;
+    padding: 1em 0;
+    text-align: center;
+}
 
-    <header class="hidden">
-        <div class="container">
-            <img alt="Night Coding" src="https://raw.githubusercontent.com/alvinlazz/alvinlazz/main/assets/Night-Coding.gif" align="auto"/>
-            <h1>👋 Hi, I’m Alvin Lazar</h1>
-        </div>
-    </header>
-    <main class="container hidden">
-        <section id="about">
-            <h2>👨🏻‍💻 About Me</h2>
-            <p>💡 I like to explore new technologies and develop scripting solutions and quick hacks.</p>
-            <p>🎓 I'm pursuing a Master's in Computer Science.</p>
-            <p>🌱 I'm on track for learning more about Linux, and Cloud Architecture.</p>
-            <p>✍️ In my free time, I enjoy playing games and drawing pictures.</p>
-            <p>💬 Feel free to reach out for interesting discussions.</p>
-            <p>✉️ You can email me at <a href="mailto:alvin@seatec.uu.me">alvin@seatec.uu.me</a>. I'll respond as soon as I can.</p>
-        </section>
-        <section id="tech-stack">
-            <h2>🛠 Tech Stack</h2>
-            <div class="tech-stack">
-                <img alt="Python" src="https://img.shields.io/badge/-Python-05122A?style=flat&logo=python"/>
-                <img alt="JavaScript" src="https://img.shields.io/badge/-JavaScript-05122A?style=flat&logo=javascript"/>
-                <img alt="Bash" src="https://img.shields.io/badge/Bash-05122A?style=flat&logo=gnu-bash"/>
-                <img alt="PowerShell" src="https://img.shields.io/badge/PowerShell-05122A?style=flat&logo=powershell"/>
-                <img alt="C" src="https://img.shields.io/badge/-C-05122A?style=flat&logo=C&logoColor=A8B9CC"/>
-                <img alt="HTML" src="https://img.shields.io/badge/-HTML-05122A?style=flat&logo=html5"/>
-                <img alt="GitHub" src="https://img.shields.io/badge/-GitHub-05122A?style=flat&logo=github"/>
-                <img alt="Google Apps Script" src="https://img.shields.io/badge/-GApps%20Script-05122A?style=flat&logo=google"/>
-                <img alt="LaTeX" src="https://img.shields.io/badge/-LaTeX-05122A?style=flat&logo=latex"/>
-                <img alt="cPanel" src="https://img.shields.io/badge/-cPanel-05122A?style=flat&logo=cpanel"/>
-                <img alt="MongoDB" src="https://img.shields.io/badge/-MongoDB-05122A?style=flat&logo=mongodb"/>
-            </div>
-        </section>
-        <section id="github-analytics">
-            <h2>⚙️ GitHub Analytics</h2>
-            <div class="github-analytics">
-                <a href="https://github.com/alvinlazz">
-                    <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api?username=alvinlazz&show_icons=true&theme=algolia&include_all_commits=true&count_private=true"/>
-                    <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=alvinlazz&layout=compact&langs_count=8&theme=algolia"/>
-                </a>
-            </div>
-        </section>
-        <section id="connect">
-            <h2>🤝🏻 Connect with Me</h2>
-            <div class="contact">
-                <a href="https://www.linkedin.com/in/alvinlazarc">
-                    <img alt="LinkedIn" src="https://img.shields.io/badge/-Alvin%20Lazar-0077B5?style=flat&logo=Linkedin&logoColor=white"/>
-                </a>
-                <a href="mailto:alvinlaz96@yahoo.com">
-                    <img alt="Email" src="https://img.shields.io/badge/-alvinlaz96@yahoo.com-D14836?style=flat&logo=Gmail&logoColor=white"/>
-                </a>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Alvin Lazar. All Rights Reserved.</p>
-    </footer>
+header h1 {
+    margin: 0;
+}
 
-    <script>
-        window.addEventListener('load', function() {
-            const loader = document.getElementById('loader');
-            const header = document.querySelector('header');
-            const main = document.querySelector('main');
-            
-            // Hide the loader and show the content
-            loader.style.display = 'none';
-            header.classList.remove('hidden');
-            main.classList.remove('hidden');
-            
-            // Allow scrolling after the content is loaded
-            document.body.style.overflow = '';
-        });
-    </script>
-</body>
-</html>
+section {
+    padding: 2em 0;
+}
+
+h2 {
+    border-bottom: 2px solid #333;
+    padding-bottom: 0.5em;
+}
+
+.tech-stack img, .github-analytics img {
+    margin: 0.5em;
+    max-width: 100%; /* Ensure images are responsive */
+    height: auto;
+}
+
+.contact a {
+    margin: 0 1em;
+}
+
+footer {
+    padding: 1em 0;
+}
+
+.loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.loader {
+    display: flex;
+    gap: 0.5em;
+}
+
+.loader div {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #3498db;
+    animation: bounce 1.5s infinite;
+}
+
+.loader div:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.loader div:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-30px);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+    .tech-stack img, .github-analytics img {
+        margin: 0.25em;
+    }
+    .contact a {
+        display: block;
+        margin: 0.5em 0;
+    }
+}
