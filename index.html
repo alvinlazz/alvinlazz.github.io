@@ -3,99 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alvin Lazar's Portfolio</title>
+    <title>Seeume</title>
     <style>
+        /* General Styles */
         body {
-            margin: 0;
             font-family: Arial, sans-serif;
-            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f4f4f4;
         }
 
-        /* Landing Page Styles */
-        .landing-page {
-            position: absolute;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        a {
+            color: #0077B5;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .main-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Loading Animation Styles */
+        .loader {
+            position: fixed;
+            left: 0;
+            top: 0;
             width: 100%;
             height: 100%;
-            background: #333;
+            background: #fff;
             display: flex;
-            align-items: center;
             justify-content: center;
-            color: #fff;
-            font-size: 2rem;
-            transition: opacity 1s ease-out;
-            z-index: 1000;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.3s ease-out;
+            /* Ensure loader is shown */
         }
 
-        .landing-page.hidden {
+        .loader.hidden {
             opacity: 0;
             pointer-events: none;
         }
 
-        /* Main Content Styles */
-        .main-content {
-            display: none;
+        .rocket {
+            width: 50px;
+            height: 50px;
+            background: url('https://img.icons8.com/ios/50/rocket.png') no-repeat center;
+            background-size: contain;
+            animation: rocketAnimation 3s linear infinite;
         }
 
-        header {
-            background: #333;
-            color: #fff;
-            padding-top: 30px;
-            min-height: 70px;
-            border-bottom: #ddd 1px solid;
-            text-align: center;
+        @keyframes rocketAnimation {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
         }
 
-        header img {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .stats img {
+                height: auto;
+                max-width: 100%;
+            }
+
+            .tech-stack img, .connect img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+                margin: 10px 0;
+            }
+
+            .tech-stack, .connect {
+                text-align: center;
+            }
+
+            .connect a {
+                display: inline-block;
+                margin: 10px;
+            }
         }
 
-        .content {
-            padding: 20px;
-        }
+        @media (min-width: 769px) {
+            .tech-stack, .connect {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
 
-        .content img {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-        }
+            .tech-stack img, .connect img {
+                margin: 10px;
+            }
 
-        .tech-stack img {
-            margin: 5px;
-        }
+            .stats {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+            }
 
-        .connect {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .connect a {
-            margin: 0 10px;
-            text-decoration: none;
-        }
-
-        .connect img {
-            height: 40px;
-        }
-
-        .stats img {
-            max-width: 100%;
+            .stats img {
+                margin: 10px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Landing Page -->
-    <div class="landing-page" id="landingPage">
-        <div>Welcome to Alvin Lazar's Portfolio</div>
+
+    <!-- Loading Animation -->
+    <div class="loader" id="loader">
+        <div class="rocket"></div>
     </div>
 
     <!-- Main Content -->
     <div class="main-content" id="mainContent">
         <header>
-            <img src="https://raw.githubusercontent.com/alvinlazz/alvinlazz/main/assets/Alvin.png" alt="Alvin Lazar Banner">
+            <!-- Header Content -->
         </header>
-        <div class="container content">
+        <div class="container">
             <img src="https://raw.githubusercontent.com/alvinlazz/alvinlazz/main/assets/Night-Coding.gif" alt="Night Coding">
 
             <h1>👨🏻‍💻 About Me</h1>
@@ -140,17 +196,14 @@
     </div>
 
     <script>
-        // JavaScript to handle the landing page animation
-        window.onload = () => {
-            const landingPage = document.getElementById('landingPage');
-            const mainContent = document.getElementById('mainContent');
-
-            setTimeout(() => {
-                landingPage.classList.add('hidden');
-                mainContent.style.display = 'block';
-                document.body.style.overflow = 'auto';
-            }, 3000); // 3 seconds delay for the animation
-        }
+        // JavaScript to handle the timing of the loader
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const loader = document.getElementById('loader');
+                loader.classList.add('hidden');
+            }, 3000); // Ensure loader is visible for at least 3 seconds
+        });
     </script>
+
 </body>
 </html>
