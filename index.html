@@ -1,107 +1,156 @@
-body {
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    margin: 0;
-    padding: 0;
-    color: #333;
-    background-color: #f4f4f4;
-    overflow-x: hidden; /* Prevent horizontal overflow */
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alvin Lazar's Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
 
-.container {
-    width: 90%;
-    max-width: 1200px; /* Prevent excessive stretching */
-    margin: auto;
-}
+        /* Landing Page Styles */
+        .landing-page {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 2rem;
+            transition: opacity 1s ease-out;
+            z-index: 1000;
+        }
 
-header, footer {
-    background: #333;
-    color: #fff;
-    padding: 1em 0;
-    text-align: center;
-}
+        .landing-page.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
 
-header h1 {
-    margin: 0;
-}
+        /* Main Content Styles */
+        .main-content {
+            display: none;
+        }
 
-section {
-    padding: 2em 0;
-}
+        header {
+            background: #333;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #ddd 1px solid;
+            text-align: center;
+        }
 
-h2 {
-    border-bottom: 2px solid #333;
-    padding-bottom: 0.5em;
-}
+        header img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+        }
 
-.tech-stack img, .github-analytics img {
-    margin: 0.5em;
-    max-width: 100%; /* Ensure images are responsive */
-    height: auto;
-}
+        .content {
+            padding: 20px;
+        }
 
-.contact a {
-    margin: 0 1em;
-}
+        .content img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+        }
 
-footer {
-    padding: 1em 0;
-}
+        .tech-stack img {
+            margin: 5px;
+        }
 
-.loader-wrapper {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #f4f4f4;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    overflow: hidden;
-}
+        .connect {
+            text-align: center;
+            margin-top: 20px;
+        }
 
-.loader {
-    display: flex;
-    gap: 0.5em;
-}
+        .connect a {
+            margin: 0 10px;
+            text-decoration: none;
+        }
 
-.loader div {
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background: #3498db;
-    animation: bounce 1.5s infinite;
-}
+        .connect img {
+            height: 40px;
+        }
 
-.loader div:nth-child(2) {
-    animation-delay: 0.3s;
-}
+        .stats img {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Landing Page -->
+    <div class="landing-page" id="landingPage">
+        <div>Welcome to Alvin Lazar's Portfolio</div>
+    </div>
 
-.loader div:nth-child(3) {
-    animation-delay: 0.6s;
-}
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent">
+        <header>
+            <img src="https://raw.githubusercontent.com/alvinlazz/alvinlazz/main/assets/Alvin.png" alt="Alvin Lazar Banner">
+        </header>
+        <div class="container content">
+            <img src="https://raw.githubusercontent.com/alvinlazz/alvinlazz/main/assets/Night-Coding.gif" alt="Night Coding">
 
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-30px);
-    }
-}
+            <h1>👨🏻‍💻 About Me</h1>
+            <p>💡 I like to explore new technologies and develop scripting solutions and quick hacks.</p>
+            <p>🎓 I'm pursuing a Masters in Computer Science.</p>
+            <p>🌱 I'm on track for learning more about Linux Stuffs and Cloud Architecture.</p>
+            <p>✍️ In my free time, I'm Playing Games & Drawing Pictures.</p>
+            <p>💬 Feel free to reach out to me for some interesting discussion.</p>
+            <p>✉️ You can shoot me an email at <a href="mailto:alvin@seatec.uu.me">alvin@seatec.uu.me</a>! I'll try to respond as soon as I can.</p>
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .container {
-        width: 95%;
-    }
-    .tech-stack img, .github-analytics img {
-        margin: 0.25em;
-    }
-    .contact a {
-        display: block;
-        margin: 0.5em 0;
-    }
-}
+            <h2>🛠 Tech Stack</h2>
+            <div class="tech-stack">
+                <img src="https://img.shields.io/badge/-Python-05122A?style=flat&logo=python" alt="Python">
+                <img src="https://img.shields.io/badge/-JavaScript-05122A?style=flat&logo=javascript" alt="JavaScript">
+                <img src="https://img.shields.io/badge/Bash-05122A?style=flat&logo=gnu-bash" alt="Bash">
+                <img src="https://img.shields.io/badge/PowerShell-05122A?style=flat&logo=powershell" alt="PowerShell">
+                <img src="https://img.shields.io/badge/-C-05122A?style=flat&logo=C&logoColor=A8B9CC" alt="C">
+                <img src="https://img.shields.io/badge/-HTML-05122A?style=flat&logo=html5" alt="HTML">
+                <img src="https://img.shields.io/badge/-GitHub-05122A?style=flat&logo=github" alt="GitHub">
+                <img src="https://img.shields.io/badge/-GApps%20Script-05122A?style=flat&logo=google" alt="Google Apps Script">
+                <img src="https://img.shields.io/badge/-LaTeX-05122A?style=flat&logo=latex" alt="LaTeX">
+                <img src="https://img.shields.io/badge/-cPanel-05122A?style=flat&logo=cpanel" alt="cPanel">
+                <img src="https://img.shields.io/badge/-MongoDB-05122A?style=flat&logo=mongodb" alt="MongoDB">
+            </div>
+
+            <h2>⚙️ GitHub Analytics</h2>
+            <div class="stats">
+                <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api?username=alvinlazz&show_icons=true&theme=algolia&include_all_commits=true&count_private=true" alt="GitHub Stats">
+                <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=alvinlazz&layout=compact&langs_count=8&theme=algolia" alt="Top Languages">
+            </div>
+
+            <h2>🤝🏻 Connect with Me</h2>
+            <div class="connect">
+                <a href="https://www.linkedin.com/in/alvinlazarc">
+                    <img src="https://img.shields.io/badge/-Alvin%20Lazar-0077B5?style=flat&logo=Linkedin&logoColor=white" alt="LinkedIn">
+                </a>
+                <a href="mailto:alvinlaz96@yahoo.com">
+                    <img src="https://img.shields.io/badge/-alvinlaz96@yahoo.com-D14836?style=flat&logo=Gmail&logoColor=white" alt="Gmail">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to handle the landing page animation
+        window.onload = () => {
+            const landingPage = document.getElementById('landingPage');
+            const mainContent = document.getElementById('mainContent');
+
+            setTimeout(() => {
+                landingPage.classList.add('hidden');
+                mainContent.style.display = 'block';
+                document.body.style.overflow = 'auto';
+            }, 3000); // 3 seconds delay for the animation
+        }
+    </script>
+</body>
+</html>
